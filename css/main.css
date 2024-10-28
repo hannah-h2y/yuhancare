@@ -23,7 +23,7 @@ button {cursor: pointer;}
 
 /* header */
 header {
-   position: fixed;left: 0;right: 0;top: -220px;z-index: 9999;
+   position: fixed;left: 0;right: 0;top: -230px;z-index: 9999;
    color: #fff;font-size: 20px;font-weight: 600;
    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -36,8 +36,8 @@ header.open::before {
 }
 header::before {
    content:"";display: block;
-   position: relative;top: 300px;
-   height: 220px;
+   position: relative;top: 320px;
+   height: 240px;
 }
 header .inner {
    display: flex;justify-content: space-between;
@@ -71,7 +71,7 @@ header #gnb .dep1>li>a {
 }
 header #gnb .dep1>li>a::after {
    content: "";
-   position: absolute;left: 50%;right: 50%;bottom: 0;height: 2px;
+   position: absolute;left: 50%;right: 50%;bottom: 0;height: 3px;
    background: #008243;
    transition: all 0.2s;
 }
@@ -79,13 +79,13 @@ header #gnb .dep1>li.over>a::after {
    left: 0;right: 0;
 }
 header #gnb .dep2 {
-   position: absolute;top: 300px;z-index: 2;
+   position: absolute;top: 320px;z-index: 2;
    display: none;
    flex-direction: column;
    gap: 10px;
    border-left: 1px solid #777;
-   height: 220px;
-   padding-top: 20px;
+   height: 240px;
+   padding: 20px 10px;
 }
 header #gnb .dep1>li:last-child>.dep2 {
    width: 140px;
@@ -96,41 +96,42 @@ header #gnb .dep2>li:hover {color: #008243;}
 header #gnb .dep2>li>a {
    font-size: 16px;font-weight: 500;
    padding: 0;
-   width: 120px;
+   width: 110px;
+}
+.dep3_position {
+   display: flex;
+   flex-direction: column;
+}
+.dep3_arrow_wrap {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   z-index: 9999;
+}
+.dep3_arrow {
+   display: block;width: 10px;height: 7px;
+}
+.dep3_arrow img {
+   display: block;width: 100%;height: 100%;
+   transition: all 0.3s;
+}
+.dep3_arrow img.on {
+   transform: rotate(180deg);
 }
 header #gnb .dep3 {
    gap: 10px;font-size: 14px;
    display: none;flex-direction: column;flex-grow: 1;
-   position: absolute;z-index: 2;
-   padding-left: 10px;color: #adadad;
+   z-index: 2;
+   padding: 10px;color: #adadad;
 }
-header #gnb .dep2rec::after {
-   content: "";display: block;
-   position: absolute;right: 0;bottom: 60px;
-   background-image: url(../img/arrow_bottom_white.svg);
-   background-size: cover;
-   width: 12px;height: 7px;z-index: 2;
-   transform: rotate(0deg);
+header #gnb .dep3.on {
+   display: flex;
 }
-header #gnb .dep2rec.rot::after, header #gnb .dep2sns.rot::after {
-   transform: rotate(180deg);
+header #gnb .dep3>li>a {padding: 5px 0;}
+header #gnb .dep3>li>a {
+   display: flex;flex-direction: column;
+   width: 100%;
 }
-header #gnb .dep2sns::after {
-   content: "";display: block;
-   position: absolute;right: 0;bottom: 137px;
-   background-image: url(../img/arrow_bottom_white.svg);
-   background-size: cover;
-   width: 12px;height: 7px;z-index: 2;
-   transform: rotate(0deg);
-}
-header #gnb .dep2sns.rot::after {
-   transform: rotate(180deg);
-}
-header #gnb .gnbsns.depon {display: flex;}
-header #gnb .recruit.depon {display: flex;}
-header #gnb .recruit {top: 180px;text-align: center;}
-header #gnb .gnbsns {top: 100px;}
-header #gnb .dep3>li>a {width: 100%;display: flex;}
 header #gnb .dep3>li:hover {color: #fff;}
 .header_util {
    position: relative;
@@ -161,14 +162,16 @@ header #gnb .dep3>li:hover {color: #fff;}
    transform: rotate(180deg);
 }
 .header_util .site_wrap_btn ul {
-   display: flex;flex-direction: column;
+   display: none;flex-direction: column;
    position: absolute;
    background: rgba(255, 255, 255, 0.7);
    padding: 3px 28px;
    color: #717171;
-   opacity: 0;
 }
-.header_util .site_wrap_btn ul.open {opacity: 1;}
+.header_util .site_wrap_btn ul.open {
+   display: flex;
+   transition: all 0.3s;
+}
 .side_menu_wrap {
    width: 500px;
    padding: 1em;
@@ -201,6 +204,29 @@ header #gnb .dep3>li:hover {color: #fff;}
    z-index: 2;
    margin: 10px;color: #adadad;
 }
+.side_menu_wrap .side_gnb .dep3.on {
+   display: flex;
+}
+
+.dep3_side_position {
+   display: flex;flex-direction: column;
+}
+.dep3_side_arrow_wrap {
+   display: flex;flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+.dep3_side_arrow {
+   display: block;
+   width: 10px;height: 5px;
+}
+.dep3_side_arrow img {
+   display: block;width: 100%;height: 100%;
+   transition: all 0.3s;
+}
+.dep3_side_arrow img.on {
+   transform: rotate(180deg);
+}
 .side_menu_wrap .side_gnb .dep3>li>a {display: block;margin: 10px;}
 .side_menu_wrap .side_gnb>ul:last-child {
    border-bottom: 1px solid #fff;
@@ -213,6 +239,44 @@ header #gnb .dep3>li:hover {color: #fff;}
 .side_menu_wrap .side_menu_copyright {
    color: #fff;
    font-size: 16px;font-weight: 500;
+}
+.main_visual .main_scroll {
+   display: flex;gap: 10px;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   right: 1%;
+   bottom: 50px;
+   transform: rotate(90deg);
+   font-weight: 200;
+   font-size: 14px;
+   z-index: 99;
+   color: #fff;
+}
+.main_progress{
+   width: 100px;
+   height: 2px;
+   overflow: hidden;
+   background: #ccc;
+   position: relative;
+}
+.main_progress::after{
+   content:'';
+   position:absolute;
+   top: 0;
+   left: 0;
+   height: 2px;
+   width: 0;
+   background: #fff;
+   animation: progress 3s ease forwards infinite;
+}
+   @keyframes progress{
+   0%{
+      width: 0px
+   }
+   100%{
+      width: 100%;
+   }
 }
 
 /* header scroll*/
@@ -251,6 +315,13 @@ header.nav-up h1 a {
    }
    header #gnb, .site_wrap_btn {display: none;}
    header .header_util .side_menu_btn {display: flex;}
+   header.open::before {
+      background-color: transparent;
+      border-top: none;
+   }
+   header.open {
+      background-color: transparent;
+   }
 }
 
 /* Main_visual*/
@@ -1008,7 +1079,7 @@ footer .f_top .f_link .family_wrap button {
    border-radius: 20px;
    background: #e5e5e5;
    font-size: 16px;font-weight: 700;
-   transition: all 0.25s ease-in-out;
+   transition: all 0.1s ease-in-out;
 }
 footer .f_top .f_link .family_wrap button.open {
    border-bottom-left-radius: 0px;
@@ -1035,10 +1106,13 @@ footer .f_top .f_link .family_wrap ul {
    border-bottom-right-radius: 20px;
    padding: 12px;
    font-size: 16px;font-weight: 300;
+   transition: all 0.5s;
+}
+footer .f_top .f_link .family_wrap ul li a:hover {
+   font-weight: 700;
 }
 footer .f_top .f_link .family_wrap ul.fwOn {
    display: flex;
-   transition: all 1s ease-in-out;
 }
 footer .f_btm {
    display: flex;
