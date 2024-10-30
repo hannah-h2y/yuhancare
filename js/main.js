@@ -81,16 +81,18 @@ $('.youtube_go').mouseout(function() {
 $('.side_menu_btn').click(function() {
    $('.side_menu_wrap').css({'display' : 'flex'});
    $('.site_wrap_btn button').css({'display':'none'});
+   $('.side_bg').addClass('on')
    $('html, body').css({'overflow':'hidden'});
 })
 $('#side_menu_close_btn').click(function() {
-   $('.side_menu_wrap').hide();
+   $('.side_menu_wrap').css({'display': 'none'});
    $('.site_wrap_btn button').css({'display':'flex'});
+   $('.side_bg').removeClass('on')
    $('html, body').css({'overflow':'auto'});
 })
 $('.side_menu_wrap .side_gnb .dep1>li>a').click(function () {
    $('.side_menu_wrap .side_gnb .dep2').stop().slideUp();
-   $(this).next().stop().slideToggle();
+   $(this).next('.dep2').stop().slideToggle();
 })
 $('.dep3_side_arrow_wrap').click(function() {
    $(this).find('img').toggleClass('on');

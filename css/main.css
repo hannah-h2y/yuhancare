@@ -175,10 +175,21 @@ header #gnb .dep3>li:hover {color: #fff;}
 .side_menu_wrap {
    width: 500px;
    padding: 1em;
-   display: flex;flex-direction: column;gap: 50px;
+   display: none;flex-direction: column;gap: 50px;
    background: #181818;
-   position: fixed;top: 0;bottom: 0;right: 0;
+   position: fixed;top: 0;bottom: 0;right: 0px;
    font-size: 18px;
+   z-index: 9999;
+}
+
+.side_bg {
+   display: none;position: fixed;top: 0;bottom: 0;left: 0;right: 0;
+   width: 100vw;height: 100vh;
+   background-color: rgba(0, 0, 0, 0.7);
+   z-index: 999;
+}
+.side_bg.on {
+   display: flex;
 }
 .side_menu_wrap #side_menu_close_btn {
    position: relative;top: 0;left: -2em;
@@ -245,7 +256,7 @@ header #gnb .dep3>li:hover {color: #fff;}
    justify-content: center;
    align-items: center;
    position: absolute;
-   right: 1%;
+   right: 1.5em;
    bottom: 50px;
    transform: rotate(90deg);
    font-weight: 200;
@@ -453,6 +464,12 @@ main .swiper_slogan .sloganbr {display: none;}
       object-fit: scale-down;
    }
 }
+@media screen and (max-width: 900px) {
+   .swiper-pagination-bullet {
+      width: 100px;
+      em {display: none;}
+   }
+}
 @media screen and (max-width: 640px) {
    main .main_swiper_wrap {
       height: 700px;
@@ -480,10 +497,7 @@ main .swiper_slogan .sloganbr {display: none;}
       display: inline-block;
       text-align: left;
    }
-   .swiper-pagination-bullet {
-      width: 100px;
-      em {display: none;}
-   }
+
 }
 /* intro_Co_wrap*/
 main .intro_Co_wrap .inner {margin-top: 100px;}
@@ -857,7 +871,7 @@ main .youtube_content_wrap .youtube_go img {
    }
 }
 .ceo_go {
-   display: inline-flex;align-items: center;justify-content: center;
+   display: flex;align-items: center;justify-content: center;
    width: 220px;height: 2.5em;
    border: 1px solid #000;border-radius: 25px;
    font-family: 'pretendard';
@@ -970,7 +984,7 @@ main .Sustainability_contents span::after {
    main .Sustainability_contents li {height: 128px;}
    main .Sustainability_contents li a {
       padding: 20px 0;
-      display: flex;flex-direction: column;align-items: flex-start;justify-content: space-evenly; /*수정필요*/
+      display: flex;flex-direction: column;align-items: flex-start;justify-content: space-evenly;
    }
    main .Sustainability_contents em {font-size: 24px;}
    main .Sustainability_contents p {white-space: wrap;font-size: 18px;}
