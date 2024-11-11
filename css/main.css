@@ -25,6 +25,7 @@ button {cursor: pointer;}
 header {
    position: fixed;left: 0;right: 0;top: -230px;z-index: 9999;
    color: #fff;font-size: 20px;font-weight: 600;
+   width: 100vw;
    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 header.open {
@@ -172,8 +173,8 @@ header #gnb .dep3>li:hover {color: #fff;}
    display: flex;
    transition: all 0.3s;
 }
-.side_menu_wrap {
-   width: 500px;
+.header_util .side_menu_wrap {
+   max-width: 500px;width: 100%;
    padding: 1em;
    display: none;flex-direction: column;gap: 50px;
    background: #181818;
@@ -256,7 +257,7 @@ header #gnb .dep3>li:hover {color: #fff;}
    justify-content: center;
    align-items: center;
    position: absolute;
-   right: 1.5em;
+   right: 0.7em;
    bottom: 50px;
    transform: rotate(90deg);
    font-weight: 200;
@@ -332,6 +333,11 @@ header.nav-up h1 a {
    }
    header.open {
       background-color: transparent;
+   }
+}
+@media screen and (min-width: 350px) {
+   .main_visual .main_scroll {
+      right: -50px;
    }
 }
 
